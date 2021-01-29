@@ -2,11 +2,10 @@ import s from './style.module.css'
 
 
 const Layout = ({id, title, desc, colorBg, urlBg }) => {
-    const styleColorBg = colorBg ? {background: colorBg} : null;
-    const styleUrlBg = urlBg ? {backgroundImage: `url(${urlBg})`} : null;
-    console.log(styleUrlBg)
+    const styleColorBg = colorBg ? {backgroundColor: colorBg} : {};
+    const styleUrlBg = urlBg ? {backgroundImage: `url(${urlBg})`} : {};
     return (
-        <section className={s.root} id={id} style={styleColorBg || styleUrlBg}>
+        <section className={s.root} id={id} style={{...styleColorBg, ...styleUrlBg}}>
             <div className={s.wrapper}>
                 <article>
                     <div className={s.title}>
