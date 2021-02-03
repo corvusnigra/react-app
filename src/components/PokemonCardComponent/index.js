@@ -4,12 +4,13 @@ import {useState} from 'react'
 import cn from 'classnames'
 
 
-const PokemonCard = ({name, values, img, id, type }) => {
-    const [isActive, setActive] = useState(false);
-
+const PokemonCard = ({name, values, img, id, type, isActive , onClickCard}) => {
+    // const [isActive, setActive] = useState(false);
+    //
     const handleClick = () => {
-      setActive(!isActive)
+        onClickCard && onClickCard(id)
     };
+
     return (
         <div className={s.root} onClick={handleClick}>
             <div className={cn(s.pokemonCard, {[s.active]: isActive})}>

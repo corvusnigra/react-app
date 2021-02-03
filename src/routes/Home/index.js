@@ -1,11 +1,9 @@
 import Header from "../../components/HeaderComponent";
-import Footer from "../../components/FooterComponent";
 import Layout from "../../components/LayoutComponent";
 
 import bg1 from '../../assets/bg1.jpg'
 import bg3 from '../../assets/bg3.jpg'
 import PokemonCard from "../../components/PokemonCardComponent";
-import MenuHeader from "../../components/MenuHeaderComponent";
 
 const POKEMONS = [
     {
@@ -144,12 +142,10 @@ const POKEMONS = [
 
 function HomePage({onChangePage}) {
     const handleClickButton = (page) => {
-        console.log('Homepage')
         onChangePage && onChangePage(page)
     };
     return (
         <>
-            <MenuHeader/>
             <Header
                 title='This is title'
                 descr='This is Description!'
@@ -195,7 +191,6 @@ function HomePage({onChangePage}) {
                     card will be captured and turned into the opponent's color. If the player's rank is higher, the
                     opponent's card will be captured and changed into the player's color instead. </p>
             </Layout>
-            <Footer/>
         </>
     );
 }
