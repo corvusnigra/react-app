@@ -166,18 +166,18 @@ function HomePage({onChangePage}) {
                 id='layout2'
                 colorBg='green'
             >
-                <div className="flex">
-                    {
-                        POKEMONS.map(item => <PokemonCard
-                            key={item.id}
-                            name={item.name}
-                            values={item.values}
-                            img={item.img}
-                            id={item.id}
-                            type={item.type}
-                        />)
-                    }
-                </div>
+                {/*<div className="flex">*/}
+                {/*    {*/}
+                {/*        POKEMONS.map(item => <PokemonCard*/}
+                {/*            key={item.id}*/}
+                {/*            name={item.name}*/}
+                {/*            values={item.values}*/}
+                {/*            img={item.img}*/}
+                {/*            id={item.id}*/}
+                {/*            type={item.type}*/}
+                {/*        />)*/}
+                {/*    }*/}
+                {/*</div>*/}
             </Layout>
             <Layout
                 title='Layout 3'

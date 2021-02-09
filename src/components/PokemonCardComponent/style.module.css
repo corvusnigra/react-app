@@ -1,9 +1,17 @@
 .root {
-    width: 268px;
-    height: 388px;
+    width: 268px !important;
+    height: 388px !important;
     margin: 16px;
     perspective: 1000px;
 }
+
+
+.card {
+    width: 268px !important;
+    height: 200px !important;
+}
+
+
 
 .pokemonCard {
     --fire: #FDDFDF;
@@ -19,20 +27,36 @@
     --psychic: #eaeda1;
     --flying: #F5F5F5;
     --fighting: #E6E0D4;
-    --normal:#F5F5F5;
+    --normal:#F5F5F;
 
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
     position: relative;
     transform-style: preserve-3d;
     transition: .6s .1s;
     transform: rotateY(180deg);
 }
 
-/* TODO: This place where we should change :hover on .active */
-/*.pokemonCard.active {*/
-/*    transform: rotateY(0deg);*/
-/*}*/
+.pokemonCard.active {
+    animation: flipFront 1000ms 300ms forwards;
+}
+
+.pokemonCard.selected {
+    margin-top: -40px;
+}
+
+@keyframes flipFront {
+    from {
+        transform: rotateY(180deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+.pokemonCard.selected {
+    margin-top: -40px;
+}
 
 .cardFront,
 .cardBack {
@@ -83,6 +107,10 @@
 
 .wrap.back {
     z-index: -1;
+    background-image: url(../../assets/card-back-side.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .cardBack {
@@ -219,31 +247,4 @@
     left: 50%;
     transform: translate(-50%, 0);
     bottom: 0;
-}
-
-.pokemonCard.active {
-    animation: flipFront 1000ms 300ms forwards;
-}
-
-.pokemonCard.deactive {
-    animation: flipBack 1000ms 300ms backwards;
-}
-
-@keyframes flipFront {
-    from {
-        transform: rotateY(180deg);
-    }
-    to {
-        transform: rotateY(0deg);
-    }
-}
-
-@keyframes flipBack {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(180deg);
-
-    }
 }
