@@ -1,17 +1,19 @@
 import HomePage from "./routes/Home";
-import GamePage from "./routes/Game";
 import {useRouteMatch, Route, Switch} from "react-router-dom"
 import MenuHeader from "./components/MenuHeaderComponent";
 import Footer from "./components/FooterComponent";
 import s from './style.module.css'
 import cn from 'classnames'
 import {Redirect} from 'react-router-dom'
+import GamePage from "./routes/Game/routes";
+
 
 const App = () => {
     const match = useRouteMatch('/');
     return (
+
         <Switch>
-            <Route path="/404"  render={() => (
+            <Route path="/404" render={() => (
                 <h1>404</h1>
             )}/>
             <Route>
@@ -30,7 +32,7 @@ const App = () => {
                                 <h1>This is contact page</h1>
                             )}/>
 
-                            <Route  render={() => (
+                            <Route render={() => (
                                 <Redirect to="/404"/>
                             )}/>
                         </Switch>
@@ -41,6 +43,7 @@ const App = () => {
             </Route>
 
         </Switch>
+
     )
 
 };
