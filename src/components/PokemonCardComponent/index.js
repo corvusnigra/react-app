@@ -2,17 +2,21 @@ import s from './style.module.css'
 import cn from 'classnames'
 
 
-const PokemonCard = ({isSelected,pokemonKey, name, values, img, id, type, isActive, onClickCard, minimize, className}) => {
+const PokemonCard = ({possession,isSelected,pokemonKey, name, values, img, id, type, isActive, onClickCard, minimize, className}) => {
     const handleClick = () => {
         onClickCard && onClickCard(pokemonKey)
     };
 
     return (
 
-        <div onClick={handleClick} className={cn({[s.card]: className === 'card', [s.root]: className === 'root', [s.selected] : isSelected}, s.pokemonCard, {[s.active]: isActive})}>
+        <div onClick={handleClick} className={cn(className, s.pokemonCard,
+            {
+                [s.active]: isActive,
+                [s.selected]: isSelected
+            })}>
             <div className={s.cardFront}>
                 <div className={cn(s.wrap, s.front)}>
-                    <div className={cn(s.pokemon, s[type])}>
+                    <div className={cn(s.pokemon, s[type])} style={{backgroundColor: possession}}>
                         <div className={s.values}>
                             <div className={cn(s.count, s.top)}>{values.top}</div>
                             <div className={cn(s.count, s.right)}>{values.right}</div>
