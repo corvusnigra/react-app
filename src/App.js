@@ -1,5 +1,5 @@
 import HomePage from "./routes/Home";
-import {useRouteMatch, Route, Switch} from "react-router-dom"
+import {useRouteMatch, Route, Switch, useLocation} from "react-router-dom"
 import MenuHeader from "./components/MenuHeaderComponent";
 import Footer from "./components/FooterComponent";
 import s from './style.module.css'
@@ -10,6 +10,8 @@ import GamePage from "./routes/Game/routes";
 
 const App = () => {
     const match = useRouteMatch('/');
+    const location = useLocation();
+    const isPadding = location.pathname === '/' || location.pathname === '/game/board';
     return (
 
         <Switch>
@@ -18,9 +20,9 @@ const App = () => {
             )}/>
             <Route>
                 <>
-                    <MenuHeader bgActive={!match.isExact}/>
+                    <MenuHeader bgActive={isPadding}/>
                     <div className={cn(s.wrap, {
-                        [s.isHomePage]: match.isExact
+                        [s.isHomePage]: isPadding
                     })}>
                         <Switch>
                             <Route path="/" exact component={HomePage}/>
